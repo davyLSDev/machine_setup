@@ -1,0 +1,36 @@
+---
+# Install basic software
+- name: Start message for installing software from standard debian sources
+  debug:
+    msg: "Starting to install software from standard debian sources"
+
+- name: Install basic debian software
+  apt:
+    update_cache: yes
+    name:
+      - audacity
+      - bluefish
+      - brasero
+      - build-essential
+#      - chromium    # not available on Ubuntu 22.04
+      - dia
+      - geany
+      - git
+      - gimp
+      - gnome-tweaks # automatically installed with Debian minimal ISO install
+      - gpick
+      - inkscape
+      - lazarus
+      - markdown
+      - openssh-server
+      - pandoc
+      - playonlinux	# no need for complicated steps!
+      - texlive
+      - vlc
+    state: present
+  
+ 
+- name: Finish message
+  debug:
+    msg: "Finished installng software from standard debian sources"
+

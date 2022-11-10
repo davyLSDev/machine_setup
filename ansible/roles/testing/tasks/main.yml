@@ -1,0 +1,12 @@
+---
+# Front matter
+- name: Start message
+  shell: echo "Hello ansible" > logfile.txt
+  
+- name: Welcome message
+  debug:
+    msg: "Welcome, ansible seems to work!"
+
+#    
+- include: roles/testing/tasks/task1.yml
+- include: roles/testing/tasks/task2.yml    

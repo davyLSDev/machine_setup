@@ -1,0 +1,12 @@
+---
+# variables needed for setting up development machine
+tmp_directory: "/tmp/SETUP"
+  
+urls:
+  - https://github.com/unetbootin/unetbootin/releases/download/702/unetbootin-linux64-702.bin
+  - https://zoom.us/client/5.12.6.173/zoom_amd64.deb
+#  bins:
+#    - unetbootin-linux64-702.bin
+#    - 
+#  debs:
+#    - https://zoom.us/client/5.12.6.173/zoom_amd64.deb
