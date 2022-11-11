@@ -4,8 +4,8 @@
   debug:
     msg: "Starting to install software"
 
+- include: roles/development/tasks/pre_installs.yml
 #- include: roles/development/tasks/apt_installs.yml
-- include: roles/development/tasks/other_installs.yml
  
 - name: Finish message
   debug:

@@ -13,6 +13,7 @@
       - brasero
       - build-essential
 #      - chromium    # not available on Ubuntu 22.04
+      - code # requires some prior steps to set up repo
       - dia
       - geany
       - git
@@ -21,11 +22,14 @@
       - gpick
       - inkscape
       - lazarus
-      - markdown
+#     - markdown
+      - mono-complete
       - openssh-server
       - pandoc
       - playonlinux	# no need for complicated steps!
       - texlive
+      - virtualbox
+      - virtualbox-ext-pack
       - vlc
     state: present
   
