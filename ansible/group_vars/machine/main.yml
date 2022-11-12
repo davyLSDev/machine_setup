@@ -1,14 +1,60 @@
 ---
 # variables needed for setting up development machine
 tmp_directory: "/tmp/SETUP"
-  
+
+downloaded_debs:
+  - sa-linux-deb # gitkrakken
+  - zoom_amd64.deb
+
+apt_repo_keys:
+  microsoft:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    dest: /usr/share/keyrings/vscode.gpg
+
+  sil:
+    url: https://packages.sil.org/keys/pso-keyring-2016.gpg
+    dest: /etc/apt/trusted.gpg.d/pso-keyring-2016.gpg
+
+  vagrant:
+    url: https://apt.releases.hashicorp.com/gpg
+    dest: /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+apt_repo_keyservers:
+  monodevelop:
+    keyserver: hkp://keyserver.ubuntu.com:80
+    id: 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF 
+
+apt_repositories:
+  - "deb https://download.mono-project.com/repo/ubuntu stable-focal main"
+  - "deb http://packages.sil.org/ubuntu jammy main"
+# FIX?  - "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com jammy main" # fix?
+
+packages:
+  - audacity
+  - bluefish
+  - brasero
+  - build-essential
+#      - chromium    # not available on Ubuntu 22.04
+  - code # requires some prior steps to set up repo
+  - dia
+  - geany
+  - git
+  - gimp
+  - gnome-tweaks # automatically installed with Debian minimal ISO install
+  - gpick
+  - inkscape
+  - lazarus
+#     - markdown
+  - mono-complete
+  - openssh-server
+  - pandoc
+  - playonlinux	# no need for complicated steps!
+  - texlive
+  - virtualbox
+  - virtualbox-ext-pack
+  - vlc
+
 urls:
   - https://github.com/unetbootin/unetbootin/releases/download/702/unetbootin-linux64-702.bin
   - https://zoom.us/client/5.12.6.173/zoom_amd64.deb
   - https://www.gitkraken.com/download/sa-linux-deb
-  - 
-#  bins:
-#    - unetbootin-linux64-702.bin
-#    - 
-#  debs:
-#    - https://zoom.us/client/5.12.6.173/zoom_amd64.deb

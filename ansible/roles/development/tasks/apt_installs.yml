@@ -7,33 +7,33 @@
 - name: Install basic debian software
   apt:
     update_cache: yes
-    name:
-      - audacity
-      - bluefish
-      - brasero
-      - build-essential
-#      - chromium    # not available on Ubuntu 22.04
-      - code # requires some prior steps to set up repo
-      - dia
-      - geany
-      - git
-      - gimp
-      - gnome-tweaks # automatically installed with Debian minimal ISO install
-      - gpick
-      - inkscape
-      - lazarus
-#     - markdown
-      - mono-complete
-      - openssh-server
-      - pandoc
-      - playonlinux	# no need for complicated steps!
-      - texlive
-      - virtualbox
-      - virtualbox-ext-pack
-      - vlc
+    name: "{{ item }}"
+#       - audacity
+#       - bluefish
+#       - brasero
+#       - build-essential
+# #      - chromium    # not available on Ubuntu 22.04
+#       - code # requires some prior steps to set up repo
+#       - dia
+#       - geany
+#       - git
+#       - gimp
+#       - gnome-tweaks # automatically installed with Debian minimal ISO install
+#       - gpick
+#       - inkscape
+#       - lazarus
+# #     - markdown
+#       - mono-complete
+#       - openssh-server
+#       - pandoc
+#       - playonlinux	# no need for complicated steps!
+#       - texlive
+#       - virtualbox
+#       - virtualbox-ext-pack
+#       - vlc
     state: present
-  
- 
+  loop: "{{ debs }}"  
+
 - name: Finish message
   debug:
     msg: "Finished installng software from standard debian sources"
