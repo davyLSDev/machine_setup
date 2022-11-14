@@ -3,7 +3,7 @@
 tmp_directory: "/tmp/SETUP"
 
 downloaded_debs:
-  - sa-linux-deb # gitkrakken
+  - gitkraken-amd64.deb
   - zoom_amd64.deb
 
 apt_repo_keys:
@@ -22,7 +22,7 @@ apt_repo_keys:
 apt_repo_keyservers:
   monodevelop:
     keyserver: hkp://keyserver.ubuntu.com:80
-    id: 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF 
+    id: 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 
 apt_repositories:
   - "deb https://download.mono-project.com/repo/ubuntu stable-focal main"
@@ -35,7 +35,7 @@ packages:
   - brasero
   - build-essential
 #      - chromium    # not available on Ubuntu 22.04
-  - code # requires some prior steps to set up repo
+## failed  - code # requires some prior steps to set up repo
   - dia
   - geany
   - git
@@ -51,10 +51,12 @@ packages:
   - playonlinux	# no need for complicated steps!
   - texlive
   - virtualbox
-  - virtualbox-ext-pack
+# failed user has to accept license  - virtualbox-ext-pack
+# also some virtualbox dkms stuff needs installing ... see my script for that
   - vlc
 
 urls:
   - https://github.com/unetbootin/unetbootin/releases/download/702/unetbootin-linux64-702.bin
   - https://zoom.us/client/5.12.6.173/zoom_amd64.deb
-  - https://www.gitkraken.com/download/sa-linux-deb
+# problem with this URL?  - https://www.gitkraken.com/download/sa-linux-deb
+  - https://release.gitkraken.com/linux/gitkraken-amd64.deb

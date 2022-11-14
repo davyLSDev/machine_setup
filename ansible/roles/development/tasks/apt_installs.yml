@@ -32,7 +32,7 @@
 #       - virtualbox-ext-pack
 #       - vlc
     state: present
-  loop: "{{ debs }}"  
+  loop: "{{ packages }}"  
 
 - name: Finish message
   debug:

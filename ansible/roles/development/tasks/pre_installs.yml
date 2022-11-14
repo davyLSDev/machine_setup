@@ -1,6 +1,6 @@
 ---
 # Install basic software
-- name: Start message for installing software from other sources  
+- name: Start message for installing software from other sources
   debug:
     msg: "Starting to install software from other sources"
 
@@ -9,7 +9,7 @@
     path: "{{ tmp_directory }}"
     state: directory
     mode: '0755'
-  
+
 - name: Download all sources
   get_url:
     url: "{{ item }}"
@@ -35,81 +35,12 @@
     repo: "{{ item }}"
     state: present
     update_cache: yes
-  loop: "{{ apt_repositories }}"              
+  loop: "{{ apt_repositories }}"
 
-#-----------------------------------------------------------------------------------
-# sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-#  - name: Get Monodevelop repo
-# echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
-
-# No longer needed:
-# - name: Add Monodevelop key
-#   apt_key:
-#     keyserver: hkp://keyserver.ubuntu.com:80
-#     id: 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-#     state: present
-
-# No longer needed
-# - name: Add Monodevelop repository
-#   apt_repository:
-#     repo: deb https://download.mono-project.com/repo/ubuntu stable-focal main
-#     state: present
-#     update_cache: yes
-
-#  - name: Get SIL key
-# 1 get the key => (wget -O- https://packages.sil.org/keys/pso-keyring-2016.gpg | sudo tee /etc/apt/trusted.gpg.d/pso-keyring-2016.gpg)&>/dev/null
-#  - name: Get SIL repo
-# 2 get the repo => (. /etc/os-release && sudo tee /etc/apt/sources.list.d/packages-sil-org.list>/dev/null <<< "deb http://packages.sil.org/$ID $VERSION_CODENAME main")
-# 2b. /etc/os-release yields $ID $VERSION_CODENAME 
-
-# # No longer needed
-# - name: Install SIL key
-#   get_url:
-#     url: https://packages.sil.org/keys/pso-keyring-2016.gpg
-#     dest: /etc/apt/trusted.gpg.d/pso-keyring-2016.gpg
-
-# No longer needed
-# - name: Add SIL repo
-#   apt_repository:
-#     repo: deb http://packages.sil.org/ubuntu jammy main
-#     state: present
-#     update_cache: yes   
-
-#  - name: Get key for Vagrant install
-# wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
-#  - name: Get repository for Vagrant install
-# echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-#  - name: Install binaries
-
-# No longer needed:
-# - name: Install Vagrant key
-#   get_url:
-#     url: https://apt.releases.hashicorp.com/gpg
-#     dest: /usr/share/keyrings/hashicorp-archive-keyring.gpg
-
-# ERROR to fix
-# - name: Add Vagrant repo
-#   add_repository:
-#     repo: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com jammy main"
-#     state: present
-#     update_cache: yes    
-      
-#  - name: Setup to install VSC
-# sudo apt install software-properties-common apt-transport-https wget -y
-#  - name: Import VSC repo key
-# wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/vscode.gpg
-#  - name: Get repository for VSC
-# echo deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main | sudo tee /etc/apt/sources.list.d/vscode.list
-
-# install Unetbootin
-# run "{{ tmp_directory }}/unetbootin-linux64-702.bin"  
-
-# Install downloaded debs
-
-# install gitkrakken
-# run dpkg -i  "{{ tmp_directory }}/sa-linux-deb"
-# install zoom
-# run dpkg -i  "{{ tmp_directory }}/zoom_amd64.deb"
+- name: Install downloaded debs
+  apt:
+    deb: "{{ tmp_directory }}/{{ item }}"
+  loop: "{{ downloaded_debs }}"
 
 - name: Finish message for installing software from other sources
   debug:
