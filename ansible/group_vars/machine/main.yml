@@ -34,6 +34,7 @@ packages:
   - audacity
   - bluefish
   - brasero
+  - bridge-utils  # pre-req for Android Studio
   - build-essential
 #      - chromium    # not available on Ubuntu 22.04
 ## failed  - code # requires some prior steps to set up repo
@@ -46,9 +47,12 @@ packages:
   - inkscape
   - lazarus
   - libreoffice
+  - libvirt-clients   # pre-req for Android Studio
+  - libvirt-daemon-system   # pre-req for Android Studio
 #     - markdown
   - mono-complete
   - net-tools # for things like ifconfig
+  - openjdk-11-jdk  # to be able to install Android studio
   - openssh-server
   - pandoc
   - playonlinux	# no need for complicated steps!
@@ -64,3 +68,11 @@ urls:
 # problem with this URL?  - https://www.gitkraken.com/download/sa-linux-deb
   - https://release.gitkraken.com/linux/gitkraken-amd64.deb
 # also broken (on my system) - https://download.virtualbox.org/virtualbox/6.1.0/virtualbox-6.1_6.1.0-135406~Debian~buster_amd64.deb
+# Android studio: this version is "frozen" at or around 16-November-2022
+  - https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2021.3.1.17/android-studio-2021.3.1.17-linux.tar.gz
+# have to work out what to do with this android-studio download:
+#  For ideas look at https://www.itzgeek.com/how-tos/linux/ubuntu-how-tos/how-to-install-android-studio-on-ubuntu-22-04.html
+# 0) ? there may be some 32 bit libraries needed to be installed: libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+# 1) tar -zxvf android-studio-2021.3.1.17-linux.tar.gz
+# 2) sudo mv android-studio /opt/
+# 3) sudo ln -sf /opt/android-studio/bin/studio.sh /bin/android-studio
