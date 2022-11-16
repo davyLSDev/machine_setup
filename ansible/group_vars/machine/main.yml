@@ -46,6 +46,7 @@ packages:
   - lazarus
 #     - markdown
   - mono-complete
+  - net-tools # for things like ifconfig
   - openssh-server
   - pandoc
   - playonlinux	# no need for complicated steps!
