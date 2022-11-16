@@ -5,6 +5,7 @@ tmp_directory: "/tmp/SETUP"
 downloaded_debs:
   - gitkraken-amd64.deb
   - zoom_amd64.deb
+# also doesn't work  - virtualbox-6.1_6.1.0-135406~Debian~buster_amd64.deb
 
 apt_repo_keys:
   microsoft:
@@ -44,6 +45,7 @@ packages:
   - gpick
   - inkscape
   - lazarus
+  - libreoffice
 #     - markdown
   - mono-complete
   - net-tools # for things like ifconfig
@@ -51,7 +53,7 @@ packages:
   - pandoc
   - playonlinux	# no need for complicated steps!
   - texlive
-  - virtualbox
+#  - virtualbox -> ouit of the box Ubuntu one is broken.
 # failed user has to accept license  - virtualbox-ext-pack
 # also some virtualbox dkms stuff needs installing ... see my script for that
   - vlc
@@ -61,3 +63,4 @@ urls:
   - https://zoom.us/client/5.12.6.173/zoom_amd64.deb
 # problem with this URL?  - https://www.gitkraken.com/download/sa-linux-deb
   - https://release.gitkraken.com/linux/gitkraken-amd64.deb
+# also broken (on my system) - https://download.virtualbox.org/virtualbox/6.1.0/virtualbox-6.1_6.1.0-135406~Debian~buster_amd64.deb
