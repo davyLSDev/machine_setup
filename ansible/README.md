@@ -45,3 +45,10 @@ From here: https://www.amd.com/en/support/previous-drivers/professional-graphics
 *** that FAILED also
 
 # Forget it, just install Jammy Jellyfish
+
+# To install node ...
+# 1) curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh
+# 2) curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+# 3) source ~/.bashrc
+# note if you "nvm list-remote" you can see all versions of Node that are available
+# 4) as of this writing, use =>  nvm install v18.12.1
